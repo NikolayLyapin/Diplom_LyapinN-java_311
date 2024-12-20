@@ -20,11 +20,11 @@ public class BlogController {
         model.addAttribute("posts", posts);
         return "blog-main";
     }
-    @GetMapping("/blog/add")
+    @GetMapping("/add")
     public String blogAdd(Model model){
         return "blog-add";
     }
-    @PostMapping("/blog/add")
+    @PostMapping("/add")
     public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
@@ -41,10 +41,15 @@ public class BlogController {
         model.addAttribute("post", res);
         return "blog-details";
     }
+
+
+
+
+
     @GetMapping("/blog/{id}/edit")
     public String blogEdit(@PathVariable(value = "id") long id, Model model){
         if(!postRepository.existsById(id)){
-            return "redirect/blog";
+            return "redirect:/blog";
         }
         Optional<Post> post = postRepository.findById(id);
         ArrayList<Post> res = new ArrayList<>();

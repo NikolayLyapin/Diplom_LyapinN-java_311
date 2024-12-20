@@ -31,17 +31,17 @@ public class MainController {
         model.addAttribute("title", "Путеводитель");
         return "travel_2";
     }
-    @GetMapping("/blog/cafe")
+    @GetMapping("/cafe")
     public String cafe(Model model) {
         model.addAttribute("title", "Кафе");
         return "cafe";
     }
-    @GetMapping("/blog/rest_nature")
+    @GetMapping("/rest_nature")
     public String rest_nature(Model model) {
         model.addAttribute("title", "Отдых и путешествия");
         return "rest_nature";
     }
-    @GetMapping("/blog/attractions")
+    @GetMapping("/attractions")
     public String attractions(Model model) {
         model.addAttribute("title", "Достопримечательности");
         return "attractions";
