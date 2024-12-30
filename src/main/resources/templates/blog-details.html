@@ -15,7 +15,12 @@
         <p th:text="${elem.full_text}"/>
         <p th:text="${elem.views}"/>
         <p><b>Просмотры:</b> <span th:text="${elem.views}"/></p>
-        <a th:href="'/blog/' + ${elem.id} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+<!--        <a th:href="'/edit'" th:value="${elem.id}" class="btn btn-warning">Редактировать</a>-->
+        <form th:action="'/edit'" method="post">
+            <input type="number" name="blogId" th:value="${elem.id}" hidden>
+            <button class="btn btn-warning" type="submit">Редактировать</button>
+        </form>
+        <br><br>
         <form th:action="'/blog/' + ${elem.id} + '/remove'" method="post">
             <button class="btn btn-warning" type="submit">Удалить</button>
         </form>
